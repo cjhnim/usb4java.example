@@ -17,4 +17,11 @@ task를 만들어서 사용하고 있습니다. 보통은 Windows에서 빌드�
   
 *linux*  
 `./gradlew clean test`  
+  
+## Windows와 Linux간의 주요 차이점
+Windows의 경우 WinUSB 드라이버를 사용하는 장치의 경우만 usb4java를 사용할 수 있습니다. 반면, Linux의 경우 장치 유형에 관계없이 usb4java를 사용할 수 있습니다.  
+그 이유는 커널 구조가 서로 상이하기 떄문입니다. Windows의 경우는 generic usb i/o를 수행하는 계층의 드라이버가 존재하지 않으나 linux의 경우 usbcore 가 generic usb i/o를 수행하고
+device specific 한 특성이 필요한 경우 별도의 드라이버를 덧대어서 장치 드라이버를 개발할 수 있는 구조입니다.  
+따라서 linux의 경우에는 generic usb i/o만 필요할 경우 usb4java를 사용할 수 있는 것입니다.
+
  
